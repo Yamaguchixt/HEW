@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+* {
+	margin :0;
+	padding :0;
+	font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+}
+
+.clear {
+	clear :both;
+}
+
+#wrapper {
+	width :1200px;
+	margin :auto;
+}
+
+#header_title{
+	
+	height :200px;
+	
+}
+
+#title_lol {
+	color :#3EBA2B;
+	font-size :4em;
+	float :left;
+	position :relative;
+	 top :10px;
+	 left :20px;
+}
+
+#title_hazimeyou {
+	position :absolute;
+	top :60px;
+	right :200px;
+	font-size :2em;
+}
