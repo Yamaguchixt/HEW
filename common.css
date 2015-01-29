@@ -36,3 +36,54 @@
 	right :200px;
 	font-size :2em;
 }
+
+#content {
+	width :1200px;
+}
+
+
+h2 {
+	line-height :35px;
+	font-size :large;
+	text-indent :3em;
+	font-weight :bold;
+	height :30px;
+	
+}
+
+.dd {
+	margin :0;
+	
+}
+.dd p{
+	margin :0;
+	background-color :#D4D0C8;
+	padding :30px 20px 50px 20px;
+}
+
+#test {
+
+	color :blue;
+}
+
+/*******************  recommend championのcss *****************************/
+
+.radio {
+	display :inline-block;
+	width :100px;
+	margin :auto;
+}
+
+.form {
+	
+	margin-top :50px;
+}
+
+.question {
+	border :solid 2px;
+}
+		
+
+		
+
+
