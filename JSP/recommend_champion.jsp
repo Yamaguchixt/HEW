@@ -6,9 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
- <link href="./common.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="./jquery-1.11.2.js"></script>
-<script type="text/javascript" src="./common.js"></script>
+ <link href="/HEW/CSS/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/HEW/JavaScript/jquery-1.11.2.js"></script>
+<script type="text/javascript" src="/HEW/JavaScript/common.js"></script>
 
 <title>オススメ　チャンピョン</title>
 </head>
@@ -20,10 +20,10 @@
 		 <div id="title_hazimeyou">をはじめよう</div>
 	  </div> <div class="clear"></div>
 
-		<img id="title_img1" onmouseover="changeImg(1)" src="./images/champions/loading/ezreal.jpg" alt="title" width="264" height="480" />
-		<img id="title_img2"  onmouseover="changeImg(2)" src="./images/champions/loading/ahri.jpg" alt="title" width="264" height="480" />
-		<img id="title_img3"  onmouseover="changeImg(3)" src="./images/champions/loading/alister.jpg" alt="title" width="264" height="480" />
-		<img id="title_img4"  onmouseover="changeImg(4)" src="./images/champions/loading/azir.jpg" alt="title" width="264" height="480" />	
+		<img id="title_img1" onmouseover="changeImg(1)" src="/HEW/images/champions/loading/ezreal.jpg" alt="title" width="264" height="480" />
+		<img id="title_img2"  onmouseover="changeImg(2)" src="/HEW/images/champions/loading/ahri.jpg" alt="title" width="264" height="480" />
+		<img id="title_img3"  onmouseover="changeImg(3)" src="/HEW/images/champions/loading/alister.jpg" alt="title" width="264" height="480" />
+		<img id="title_img4"  onmouseover="changeImg(4)" src="/HEW/images/champions/loading/azir.jpg" alt="title" width="264" height="480" />	
 		
 	</div> <!--  close header -->
 	
@@ -31,7 +31,7 @@
 	
 		<div class="question">
         <p style="margin :30px;">好きなvisualを選んでください</p>
-                <form class="form" action="result.jsp" method="post">
+                <form class="form" action="/HEW/JSP/dispatcher/result.jsp"  method="post">
                         <p class="radio"><input type="radio" name="answer" value="annie" />女の子</p>
                         <p class="radio"><input type="radio" name="answer" value="draven" />男の子</p>
                         <p class="radio"><input type="radio" name="answer" value="3" />忍者</p>

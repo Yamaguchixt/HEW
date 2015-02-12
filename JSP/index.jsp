@@ -7,9 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
- <link href="./common.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="./jquery-1.11.2.js"></script>
-<script type="text/javascript" src="./common.js"></script>
+ <link href="/HEW/CSS/common.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/HEW/JavaScript/jquery-1.11.2.js"></script>
+<script type="text/javascript" src="/HEW/JavaScript/common.js"></script>
 
 <title>League of legendsをはじめよう</title>
 </head>
@@ -22,10 +22,10 @@
 		 <div id="title_hazimeyou">をはじめよう</div>
 	  </div> <div class="clear"></div>
 
-		<img id="title_img1" onmouseover="changeImg(1)" src="./images/champions/loading/ezreal.jpg" alt="title" width="264" height="480" />
-		<img id="title_img2"  onmouseover="changeImg(2)" src="./images/champions/loading/ahri.jpg" alt="title" width="264" height="480" />
-		<img id="title_img3"  onmouseover="changeImg(3)" src="./images/champions/loading/alister.jpg" alt="title" width="264" height="480" />
-		<img id="title_img4"  onmouseover="changeImg(4)" src="./images/champions/loading/azir.jpg" alt="title" width="264" height="480" />	
+		<img id="title_img1" onmouseover="changeImg(1)" src="/HEW/images/champions/loading/ezreal.jpg" alt="title" width="264" height="480" />
+		<img id="title_img2"  onmouseover="changeImg(2)" src="/HEW/images/champions/loading/ahri.jpg" alt="title" width="264" height="480" />
+		<img id="title_img3"  onmouseover="changeImg(3)" src="/HEW/images/champions/loading/alister.jpg" alt="title" width="264" height="480" />
+		<img id="title_img4"  onmouseover="changeImg(4)" src="/HEW/images/champions/loading/azir.jpg" alt="title" width="264" height="480" />	
 		
 	</div> <!--  close header -->
 	
@@ -46,13 +46,31 @@
 	 <h2>あなたにオススメのchampionはこれだ</h2> 
 	<div class="dd"> <p>123体のチャンピョンの中から、あなたにオススメのチャンピョンをセレクトします。<br />
 	 		是非、質問に答えて、あなたのお気に入りを見つけてください<br />
-	 		<a href="recommend_champion.jsp">オススメチャンピョンをみつける</a>
+	 		<a href="/HEW/JSP/recommend_champion.jsp">オススメチャンピョンをみつける</a>
 	 </p></div>
+	 <h2>あなたのサモナーネイムを調べる</h2> 
+	<div class="dd" >
+	        <form action="/HEW/JSP/riot/summonerNameToId.jsp" action="post" style=" display :inline ;">
+	        	<p>
+                  サモナーネイムを入力してください<br />
+                  <input type="text" name="summonerName"/>
+                <input type="submit" />
+                <%
+                	String errorMessage = (String)request.getAttribute("errorMessage");
+                	if(errorMessage != null){
+                		out.println(errorMessage);
+                	}
+                %>
+                </p>
+           </form>
+	 	
+	 </div>
 	
 	</div><!-- close content -->
 	
 	 
-	
+<p style="height:200px; display :none">
+</p>	
 	
 	
 

@@ -10,6 +10,11 @@
 	clear :both;
 }
 
+body {
+	background-image: url("../images/bg1.jpg");
+	height :1500px;
+
+}
 #wrapper {
 	width :1200px;
 	margin :auto;
@@ -22,8 +27,8 @@
 }
 
 #title_lol {
-	color :#3EBA2B;
-	font-size :4em;
+	color :#FFF;
+	font-size :5em;
 	float :left;
 	position :relative;
 	 top :10px;
@@ -31,9 +36,10 @@
 }
 
 #title_hazimeyou {
+	color :#FFF;
 	position :absolute;
-	top :60px;
-	right :200px;
+	top :70px;
+	right :80px;
 	font-size :2em;
 }
 
@@ -48,6 +54,7 @@ h2 {
 	text-indent :3em;
 	font-weight :bold;
 	height :30px;
+	color :#FFF;
 	
 }
 
@@ -57,8 +64,10 @@ h2 {
 }
 .dd p{
 	margin :0;
-	background-color :#D4D0C8;
+	color :#FFF;
+	/*background-color :#D4D0C8;*/
 	padding :30px 20px 50px 20px;
+	border :solid 1px #E3E3E3;
 }
 
 #test {
@@ -84,6 +93,80 @@ h2 {
 }
 		
 
-		
+/******************		result のcss****************************************/
+
+#mainImg {
+	width=:800px;
+	float :left;
+	
+}
+ 
+#mainImg img {
+position :absolute; 
+	margin :20px 20px 20px 0px;
+}
+
+#result_content {
+	position :relative;
+	top :300px;
+}
+
+#comment {
+	float :right;
+	margin :30px 40px 40px 30px;
+}
 
 
+/***********	 question のcss ****************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********/
