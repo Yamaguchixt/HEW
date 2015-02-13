@@ -7,9 +7,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="Content-Style-Type" content="text/css" />
         <meta http-equiv="Content-Script-Type" content="text/javascript" />
-         <link href="../CSS/common.css" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="../JavaScript/jquery-1.11.2.js"></script>
-        <script type="text/javascript" src="../JavaScript/common.js"></script>
+         <link href="/HEW/CSS/common.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="/HEW/JavaScript/jquery-1.11.2.js"></script>
+        <script type="text/javascript" src="/HEW/JavaScript/common.js"></script>
 
         <title>チャンピョンアンケート</title>
         <style>

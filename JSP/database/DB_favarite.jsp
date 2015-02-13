@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="java.sql.*" %>
+ 
+  <%@ page import="java.sql.*" %>
     
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>LIST</title>
+		<title>DB_favarite</title>
 	</head>
 <body>
 
@@ -17,27 +18,35 @@
 	Statement statement = null;
 	statement = con.createStatement();
 
+	//人気票を追加するchampionNameを取得
 	String favarite = request.getParameter("select");
+	int favariteNumber = 0;
 	
-	
-	String sql = "SELECT favarite FROM champions WHERE ChampionName = \"Aatrox\""; 
-	out.println(favarite);
-	out.println(sql);
-	
-	
+	//SQLをつくる
+	String sql = "SELECT favarite FROM champions WHERE ChampionName = \""+favarite+"\""; 
 	ResultSet resultset = statement.executeQuery(sql);
 	
-	while(resultset.next()){
-		int result1 = resultset.getInt(1);
-		
-		
-		out.println(favarite+"の得票数は"+result1+"です");
+	//faviteが何票もってるか確かめる。
+	if(resultset.next()){
+		favariteNumber = resultset.getInt(1);
 	}
+	
+	//取得した票数に+1する
+	favariteNumber += 1; 
+	
+	//UPDATE SQLをつくる
+	String updateSql = "UPDATE champions SET favarite = "+favariteNumber+" where championname =\""+favarite+"\"";
+	
+	//updateSqlを実行する
+	int updated = statement.executeUpdate(updateSql);
+	out.println("更新後の値は"+updated);
 	
 	statement.close();
 	con.close();
 	
+	//人気結果を表示するページにdispatchする
+	request.getRequestDispatcher("../display_favarite.jsp").forward(request,response);
 %>
-
+	
 </body>
 </html>

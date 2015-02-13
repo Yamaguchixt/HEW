@@ -13,17 +13,29 @@
 body {
 	background-image: url("../images/bg1.jpg");
 	height :1500px;
-
 }
+
+h1 {
+	color :#FFF;	
+}
+
+h2 {
+	line-height :35px;
+	font-size :large;
+	text-indent :3em;
+	font-weight :bold;
+	height :30px;
+	color :#FFF;
+}
+
+
 #wrapper {
 	width :1200px;
 	margin :auto;
 }
 
 #header_title{
-	
 	height :200px;
-	
 }
 
 #title_lol {
@@ -48,19 +60,10 @@ body {
 }
 
 
-h2 {
-	line-height :35px;
-	font-size :large;
-	text-indent :3em;
-	font-weight :bold;
-	height :30px;
-	color :#FFF;
-	
-}
+
 
 .dd {
 	margin :0;
-	
 }
 .dd p{
 	margin :0;
@@ -71,7 +74,6 @@ h2 {
 }
 
 #test {
-
 	color :blue;
 }
 
@@ -84,7 +86,6 @@ h2 {
 }
 
 .form {
-	
 	margin-top :50px;
 }
 
@@ -98,7 +99,6 @@ h2 {
 #mainImg {
 	width=:800px;
 	float :left;
-	
 }
  
 #mainImg img {
