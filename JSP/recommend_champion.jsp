@@ -12,7 +12,7 @@
 
 <title>オススメ　チャンピョン</title>
 </head>
-<body>
+<body onload="setInterval('changeImgByTimer()',20000)">
 <div id="wrapper">
 	<div id="header">
 	  <div id="header_title">
@@ -20,10 +20,10 @@
 		 <div id="title_hazimeyou">をはじめよう</div>
 	  </div> <div class="clear"></div>
 
-		<img id="title_img1" onmouseover="changeImg(1)" src="/HEW/images/champions/loading/ezreal.jpg" alt="title" width="264" height="480" />
-		<img id="title_img2"  onmouseover="changeImg(2)" src="/HEW/images/champions/loading/ahri.jpg" alt="title" width="264" height="480" />
-		<img id="title_img3"  onmouseover="changeImg(3)" src="/HEW/images/champions/loading/alister.jpg" alt="title" width="264" height="480" />
-		<img id="title_img4"  onmouseover="changeImg(4)" src="/HEW/images/champions/loading/azir.jpg" alt="title" width="264" height="480" />	
+		<img id="title_img1" onerror="changeImg(1)" src="/HEW/images/champions/loading/ezreal.jpg" alt="title" width="264" height="480" />
+		<img id="title_img2"  onerror="changeImg(2)" src="/HEW/images/champions/loading/ahri.jpg" alt="title" width="264" height="480" />
+		<img id="title_img3"  onerror="changeImg(3)" src="/HEW/images/champions/loading/alister.jpg" alt="title" width="264" height="480" />
+		<img id="title_img4"  onerror="changeImg(4)" src="/HEW/images/champions/loading/azir.jpg" alt="title" width="264" height="480" />	
 		
 	</div> <!--  close header -->
 	

@@ -1,32 +1,59 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css" />
-<meta http-equiv="Content-Script-Type" content="text/javascript" />
- <link href="/HEW/CSS/common.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/HEW/JavaScript/jquery-1.11.2.js"></script>
-<script type="text/javascript" src="/HEW/JavaScript/common.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+     <link href="/HEW/CSS/common.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/HEW/JavaScript/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="/HEW/JavaScript/common.js"></script>
 
 <title>League of legendsをはじめよう</title>
+
+	<style>
+		#relative {
+			width :1200px;
+			height :600px;
+			position :relative;
+		}
+		.absolute {
+			position :absolute;
+			width :300px;
+			height :500px;
+			overflow :hidden;
+		}
+		#title_img0 {	top :0px; left :0px;}
+		#title_img1 { 	top :0px; left :310px;}
+		#title_img2 {	top :0px; left :620px;}
+		#title_img3 {	top :0px; left :930px;}
+			
+		
+	</style>
 </head>
 
 <body>
-	<div id="wrapper">
+  <div id="wrapper">
 	<div id="header">
 	  <div id="header_title">
 		 <div id="title_lol">League of legends</div>
 		 <div id="title_hazimeyou">をはじめよう</div>
 	  </div> <div class="clear"></div>
-
-		<img id="title_img1" onmouseover="changeImg(1)" src="/HEW/images/champions/loading/ezreal.jpg" alt="title" width="264" height="480" />
-		<img id="title_img2"  onmouseover="changeImg(2)" src="/HEW/images/champions/loading/ahri.jpg" alt="title" width="264" height="480" />
-		<img id="title_img3"  onmouseover="changeImg(3)" src="/HEW/images/champions/loading/alister.jpg" alt="title" width="264" height="480" />
-		<img id="title_img4"  onmouseover="changeImg(4)" src="/HEW/images/champions/loading/azir.jpg" alt="title" width="264" height="480" />	
-		
+	<div id="relative">
+		<div class="absolute" id="title_img0">
+			<img  onerror="changeImg(0)" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ezreal_0.jpg" alt="title"  />
+		</div>
+		<div class="absolute" id="title_img1">
+			<img   onerror="changeImg(1)" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ahri_0.jpg" alt="title"  />
+		</div>
+		<div class="absolute" id="title_img2">
+			<img  onerror="changeImg(2)" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Azir_0.jpg" alt="title"  />
+		</div>
+		<div class="absolute" id="title_img3">
+			<img  onerror="changeImg(3)" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Jinx_2.jpg" alt="title"  />	
+		</div>
+	</div>	
 	</div> <!--  close header -->
 	
 	
@@ -75,16 +102,8 @@
 	 	</p></div>
 	
 	</div><!-- close content -->
-	
-	 
-<p style="height:200px; display :none">
-</p>	
-	
-	
+  </div> <!--  close wrapper -->
 
-	
-	
-	</div> <!--  close wrapper -->
 </body>
 
 </html>

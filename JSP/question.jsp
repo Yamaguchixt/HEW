@@ -13,7 +13,10 @@
 
         <title>チャンピョンアンケート</title>
         <style>
-        
+        	 
+        	 body {
+   	             color :#FFF;
+             } 
         	h2 {
         		text-align :center;	
         		font-size :3em;
@@ -22,59 +25,95 @@
         		text-indent :0em;
         		
         	}
-        
-        	#content{
-        		padding-left :50px;	
-        	
-        	}
-             body {
-   	             color :#FFF;
-             } 
-             
-             .champion{
-             	float :left;
-             	overfloa :auto;
-             	width :200px;
-             	margin-right :20px;
-             	text-align: center;
+        	/*champion icon */	
+             .icon{
+            	display :block;
+            	width :150px;
+            	height :150px;
+            	margin :0px;
+            	float :left;
+            } 
+             #input{
+             	width :1000px;
+             	height :100px;
+             	padding :;
              }
-             
-             
+            input[type="text"]  {
+             	color :#AAA;
+             }
+             #submit {
+             	float :right;
+             	margin-right :100px;
+				display :inline-bolck;
+             	width :300px;
+             	height :70px;
+             }
         </style>
 	</head>
 <body>
+
 <div id="wrapper">
 	<h2>あなたのお気に入りを教えてください</h2>
 	
 		<div id="content">
+		
 			<form action="./database/DB_favarite.jsp" method="post">
-				<div class="champion" >
-					<img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg" alt="img" width="200" height="400"  />
-					<input type="radio" name="select"  value="Aatrox" />Aatrox
+		
+				<div id="input"> <!--  このTextが変更されるたびに入力から正規表現をつくって、championと照合し、表示を決定する -->
+					<input type="text" name="serch" value="絞り込み検索ができます" onfocus="erase()" id="serch" onChange="test()" />
+					<input type="submit" value="このチャンピョンに投票する" id="submit" />		
 				</div>
-				<div class="champion" >
-					<img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ahri_0.jpg" alt="img" width="200" height="400"  />
-					<input type="radio" name="select"  value="" />Aatrox
-				</div>
-				<div class="champion" >
-					<img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Annie_0.jpg" alt="img" width="200" height="400"  />
-					<input type="radio" name="select"  value="" />Aatrox
-				</div>
-				<div class="champion" >
-					<img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Amumu_0.jpg" alt="img" width="200" height="400"  />
-					<input type="radio" name="select"  value="" />Aatrox
-				</div>
-				<div class="champion" >
-					<img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Azir_0.jpg" alt="img" width="200" height="400"  />
-					<input type="radio" name="select"  value="" />Aatrox
-				</div>
-				<br />
-	<input type="submit" />		
-			
+				
+                <script type="text/javascript" >
+                //<![CDATA[
+                           
+                //アイコン生成     
+ 				for(var i = 0 ; i <=122 ; i++){
+ 					document.write("<p class='icon' id='"+i+"' ><input type='radio' name='select'  value="+championName[i]+" />"+championName[i]+" <img src='http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/"+championName[i]+".png' /> </p>");
+ 				}               
+                
+ 				//textにfocusされたらデフォルトの文字をけす
+ 				function erase(){
+ 					var element = document.getElementById("serch");
+ 					var num = element.value;
+ 					var string = "絞り込み検索ができます";
+ 					if(num == string){
+ 						document.getElementById("serch").value = "";
+ 						element.style.color="#000";
+ 					}
+ 				}
+                           
+                 function test(){
+                	 //textの入力から正規表現つくる
+                	var words = document.getElementById("serch").value;
+                	//入力が空になったら、絞り込み直しとしてすべての要素を再表示する 
+                	 if(words == ""){
+                		var array = document.getElementsByClassName("icon");
+                		for(var i in array){
+                			$(function(){$(array[i]).fadeIn("slow")});
+                		}
+                	}
+                	var regEx = new RegExp("^"+words+".*","i");
+                	
+                	for (var i = 0; i <=122; i++ ){
+                	//matchしない要素はnoneにする要素は表示させる
+                		if(!   (regEx.test(championName[i]))   ){
+                			var element = document.getElementById(i);
+                			//element.style.display = "none";
+                			$(function(){$(element).fadeOut("slow")});
+                		}else{
+                			var element = document.getElementById(i);
+                			$(function(){$(element).fadeIn("slow")});
+                		}
+                	}
+                	 
+                 }  //test()
+                 //]]>
+                </script>      
+				
 			</form>
 		</div><!--  content -->	
 
-	
 </div><!--  wrapper -->
 </body>
 </html>

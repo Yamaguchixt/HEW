@@ -9,5 +9,7 @@
 	<classpathentry kind="src" path="WEB-INF/src"/>
 	<classpathentry kind="src" output="work" path="work"/>
 	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/mysql-connector-java-5.1.28-bin.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/jcommon-1.0.23.jar"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>

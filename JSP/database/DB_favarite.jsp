@@ -18,8 +18,8 @@
 	Statement statement = null;
 	statement = con.createStatement();
 
-	//人気票を追加するchampionNameを取得
-	String favarite = request.getParameter("select");
+	String favarite = request.getParameter("select");	//人気票を追加するchampionNameを取得
+	if(favarite == null || favarite.equals("")){favarite ="Teemo";}	//お気に入りが入力されずにrequestされたらteemoにする
 	int favariteNumber = 0;
 	
 	//SQLをつくる
@@ -39,7 +39,6 @@
 	
 	//updateSqlを実行する
 	int updated = statement.executeUpdate(updateSql);
-	out.println("更新後の値は"+updated);
 	
 	statement.close();
 	con.close();
