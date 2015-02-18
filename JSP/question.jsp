@@ -89,7 +89,7 @@
                 	//入力が空になったら、絞り込み直しとしてすべての要素を再表示する 
                 	 if(words == ""){
                 		var array = document.getElementsByClassName("icon");
-                		for(var i in array){
+                		for(var i=0; i < 123; i++){ 
                 			$(function(){$(array[i]).fadeIn("slow")});
                 		}
                 	}

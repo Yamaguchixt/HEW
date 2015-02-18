@@ -148,35 +148,7 @@ championName[120]="Ziggs";
 championName[121]="Zilean";
 championName[122]="Zyra";
 
-//画像の自動切り替え
-/*
-function changeImgByTimer(){
-	var index = Math.floor(Math.random()*122);  //どのチャンピョンを使うか
-	var subIndex = index % 4;								//どのスキンを使うか	
-	count = (count+1)%4;//どの画像を変更するか
-	var element = document.getElementById("title_img"+count);
-	
-	document.getElementById("title_img"+count).src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/"+championName[index]+"_"+subIndex+".jpg";
-}
-*//*
-$(function(){
-	var i;
-	setInterval(
-			function(){
-				for (i=0; i<4 ; i++){
-					var index = Math.floor(Math.random()*122)%123;  
-					var subIndex = index % 2;							
-					$("#title_img"+i+" img:first").after('<img src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/'+championName[index]+'_'+subIndex+'.jpg" alt="title" error="altanate('+i+')" />');
-					$("#title_img"+i+" img:first").fadeOut("slow",function(){
-						$(this).remove();
-						 
-					});
-					 
-				}
-			}
-			,3000
-	);
-});*/
+
 $(function(){
 	var timer = 3000;
 	setInterval(
@@ -249,6 +221,7 @@ $(function(){
 	});
 });
 
+//オススメのresultの画像まわり
 $(function(){
 	$("#subImg a").mouseover(function(){
 		$("#mainImg img").before("<img src='"+$(this).attr("href")+"'width='743' height='438'>");
@@ -258,7 +231,24 @@ $(function(){
 	});
 });
 
-
+//RegisterのIDが既存かどうかajaxでチェック
+$(function(){
+	$("#inputID").change(function(){
+		$.ajax({
+			type:'GET',
+			url:'http://localhost:8080/HEW/RegisterDispatcher?ID='+($("#inputID").val())+'',
+			dataType:'html'
+		})
+		.done(function(date){
+			if(date==1){
+				$("#errorMessage").text("そのIDは使われています");
+			}
+			if(date==0){
+				$("#errorMessage").text("そのIDは使用できます");
+			}
+		});
+	});
+});
 
 
 
