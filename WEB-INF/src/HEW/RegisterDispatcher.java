@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.regex.*;
-@SuppressWarnings("serial")
 
 //register_formからの遷移を確認。web.xmlのmappingは有効。
 //formからの入力を確認して、DBinterfaceに登録させ、loginか再登録へdispatchさせる。

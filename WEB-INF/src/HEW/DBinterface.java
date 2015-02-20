@@ -1,7 +1,7 @@
 package HEW;
 
 import java.sql.*;
-
+	//ハッシュ化はDBinterface側で行う
 @SuppressWarnings("serial")
 public class DBinterface {
 	
@@ -76,8 +76,8 @@ public class DBinterface {
 	//与えられたIDとpassがmemberテーブルに登録されている正規のメンバーか回答する
 	public static boolean isMember(String ID,String password) throws SQLException {
 		
-		String hashedID = ID;
-		String hashedpassword = password;
+		String hashedID = Hash.getHash(ID);
+		String hashedpassword = Hash.getHash(password);
 		
 		Connection connection = DBinterface.openDB();
 		Statement statement = connection.createStatement();

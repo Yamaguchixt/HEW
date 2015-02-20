@@ -6,7 +6,21 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>ここはログインページです</h1>
-<a href="/HEW/JSP/login/register_form.jsp">新規登録へもどる</a>
+	
+<%
+	String message = (String)request.getAttribute("errorMessage");
+
+%>
+	
+	<h1>ここはログインページです</h1>
+	
+	<a href="/HEW/JSP/login/register_form.jsp">新規登録へもどる</a>
+	
+	<form action="/HEW/LoginDispatcher" method="post" >
+		<p>ID:<input type="text" name="ID"/></p>
+		<p>Pass:<input type="text" name="password" /></p>
+		<p><input type="submit" value="ログイン"/></p>
+	</form>
+	<h2>エラーメッセージ:<%= message %></h2>
 </body>
 </html>

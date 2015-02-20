@@ -11,5 +11,8 @@
 	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/mysql-connector-java-5.1.28-bin.jar"/>
 	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/jfreechart-1.0.19.jar"/>
 	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/jackson-annotations-2.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/jackson-core-2.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/jackson-databind-2.5.0.jar"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>

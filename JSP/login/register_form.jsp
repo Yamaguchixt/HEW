@@ -14,7 +14,7 @@
 		<p>ID:<input type="text" name="ID" id="inputID" /><span id="errorMessage"></span></p>
 		<p>Pass: <input type="password" name="password" /></p>
 		<p>SummonerName :<input type="text" name="summonerName" /></p>
-		<p>性別　	男性<input type="radio" name="sex" value="man"/> 女性<input type="radio" name="sex" value="female" /> </p>
+		<p>性別　	男性<input type="radio" name="sex" value="man" checked="checked"/> 女性<input type="radio" name="sex" value="female" /> </p>
 		<input type="submit" value="送信" />
 	</form>
 <%

@@ -6,15 +6,47 @@
   version="3.0"
   metadata-complete="true">
 
+ <filter>
+ 	<filter-name>EncodingFilter</filter-name>
+ 	<filter-class>filter.EncodingFilter</filter-class>
+ </filter>
+
+<filter>
+	<filter-name>DebugFilter</filter-name>
+	<filter-class>filter.DebugFilter</filter-class>
+</filter> 
+
+<filter-mapping>
+	<filter-name>DebugFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+
+ <filter-mapping>
+ 	<filter-name>EncodingFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+ </filter-mapping>
  
  <servlet>
  	<servlet-name>RegisterDispatcher</servlet-name>	
  	<servlet-class>HEW.RegisterDispatcher</servlet-class>
  </servlet> 
+
+ <servlet>
+ 	<servlet-name>LoginDispatcher</servlet-name>
+ 	<servlet-class>HEW.LoginDispatcher</servlet-class>
+ </servlet>
+
+ 
+ <servlet-mapping>
+ 	<servlet-name>LoginDispatcher</servlet-name>
+ 	<url-pattern>/LoginDispatcher</url-pattern>
+ </servlet-mapping>
  
  <servlet-mapping>
  	<servlet-name>RegisterDispatcher</servlet-name>
  	<url-pattern>/RegisterDispatcher</url-pattern>
  </servlet-mapping>
-  
+ 
+ 
+ 
 </web-app>

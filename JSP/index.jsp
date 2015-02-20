@@ -100,7 +100,17 @@
 	 		あなたのお気に入りのチャンピョンを投票して、ランキングを確認しましょう
 			<a href="/HEW/JSP/question.jsp" >人気投票へ</a>	
 	 	</p></div>
-	
+	 <h2>新規メンバー登録</h2>
+	 	<div class="dd"><p>
+	 	メンバー登録
+	 	<a href="/HEW/JSP/login/register_form.jsp">メンバー登録へ</a>
+	 	</p></div>
+	 	
+	 <h2>グラフ表示</h2>	
+	 <div class="dd"><p>
+	 <img src="/HEW/images/LineChart.jpeg" />
+	 </p></div>
+	 
 	</div><!-- close content -->
   </div> <!--  close wrapper -->
 
