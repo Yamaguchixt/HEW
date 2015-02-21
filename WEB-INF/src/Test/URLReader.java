@@ -2,7 +2,6 @@ package Test;
 
 import java.net.*;
 import java.io.*;
-
 public class URLReader {
 	public static void main (String args[])	throws Exception	{
 		

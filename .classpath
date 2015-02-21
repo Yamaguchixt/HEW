@@ -14,5 +14,12 @@
 	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/jackson-annotations-2.5.0.jar"/>
 	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/jackson-core-2.5.0.jar"/>
 	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/jackson-databind-2.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/gson-2.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/jsonic-1.0.5.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/org.apache.commons.io_1.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/httpclient-4.4.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/httpcore-4.4.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/xampp/tomcat/lib/json-org.jar"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>
