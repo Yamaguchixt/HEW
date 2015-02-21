@@ -16,15 +16,16 @@ import org.json.JSONObject;
 //championNameとIDの変換を担当するクラス
 public class ChampionApi{
 	
-	static HashMap<String,Integer> championNameToIdMap;
-	static HashMap<Integer,String> championIdToNameMap;
+	public static HashMap<String,Integer> championNameToIdMap;
+	public static HashMap<Integer,String> championIdToNameMap;
+	public static String[] championName;
 	
 	//この初期化処理で二つのhashmapを作成する。
 	static {
 	     championNameToIdMap = new HashMap<String,Integer>();
 		 championIdToNameMap = new HashMap<Integer,String>();
 	
-		String[] championName = new String[123];
+		championName = new String[123];
 		
 		championName[0]=new String("Aatrox");
 		championName[1]=new String("Ahri");

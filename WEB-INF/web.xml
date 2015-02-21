@@ -35,7 +35,16 @@
  	<servlet-name>LoginDispatcher</servlet-name>
  	<servlet-class>HEW.LoginDispatcher</servlet-class>
  </servlet>
+ 
+ <servlet>
+ 	<servlet-name>RankingBarGraph</servlet-name>
+ 	<servlet-class>HEW.RankingBarGraph</servlet-class>
+ </servlet>
 
+<servlet-mapping>
+	<servlet-name>RankingBarGraph</servlet-name>
+	<url-pattern>/RankingBarGraph</url-pattern>
+</servlet-mapping>
  
  <servlet-mapping>
  	<servlet-name>LoginDispatcher</servlet-name>

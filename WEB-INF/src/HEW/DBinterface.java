@@ -89,7 +89,23 @@ public class DBinterface {
 		return false;
 	}
 	
-	
+	public static int[] getFavariteRanking() throws SQLException{
+		
+		int[] favariteArray = new int[123];
+		int count = 0;
+		
+		Connection connection = DBinterface.openDB();
+		Statement statement =connection.createStatement();
+		
+		String sql =" SELECT favarite FROM champions ORDER BY championName";
+		ResultSet resultset = statement.executeQuery(sql);
+		while(resultset.next()){
+			favariteArray[count] = resultset.getInt(1);
+			count++;
+		}
+		DBinterface.closeDB(connection);
+		return favariteArray;
+	}
 	
 	
 	
