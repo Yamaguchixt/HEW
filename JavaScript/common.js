@@ -148,7 +148,7 @@ championName[120]="Ziggs";
 championName[121]="Zilean";
 championName[122]="Zyra";
 
-
+/*
 $(function(){
 	var timer = 3000;
 	setInterval(
@@ -199,7 +199,7 @@ $(function(){
 			,3220
 	);
 });
-
+*/
 //indexのimgを変更する
 
 function changeImg(i){

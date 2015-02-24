@@ -42,7 +42,7 @@
 	con.close();
 	
 	//人気結果を表示するページにdispatchする
-	request.getRequestDispatcher("../display_favarite.jsp").forward(request,response);
+	request.getRequestDispatcher("/JSP/display_ranking.jsp").forward(request,response);
 %>
 	
 </body>

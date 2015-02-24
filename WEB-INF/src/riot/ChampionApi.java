@@ -14,6 +14,7 @@ import org.json.JSONObject;
 
 
 //championNameとIDの変換を担当するクラス
+//今週の無料チャンピョンの習得を実装
 public class ChampionApi{
 	
 	public static HashMap<String,Integer> championNameToIdMap;
@@ -192,5 +193,28 @@ public class ChampionApi{
 		int championId = championNameToIdMap.get(championName);
 		return championId;
 	}
+	
+	public static String[] getFreeToPlay() throws IOException, JSONException{
 		
+		URL url = new URL("https://na.api.pvp.net/api/lol/na/v1.2/champion?freeToPlay=true&api_key=34e33a58-bdf2-4e07-b04c-83708b207ee8");
+		BufferedReader bfr = new BufferedReader(new InputStreamReader(url.openStream()));
+		StringBuffer jsonString = new StringBuffer();
+		String line;
+		while((line = bfr.readLine()) != null){
+			jsonString.append(line);
+		}
+		JSONObject jsonObject = new JSONObject(jsonString.toString());
+		
+		
+		JSONArray championDtoArray = jsonObject.getJSONArray("champions");
+		String[] freeToPlayName = new String[championDtoArray.length()];
+		
+		for(int i = 0; i < championDtoArray.length(); i++){
+			JSONObject championDto = championDtoArray.getJSONObject(i);
+			freeToPlayName[i] = getChampionName((int)championDto.getLong("id"));
+		}
+		
+		return freeToPlayName;
+	}
+	
 }

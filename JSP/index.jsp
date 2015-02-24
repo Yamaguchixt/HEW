@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import ="riot.*" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,8 +31,25 @@
 		#title_img2 {	top :0px; left :620px;}
 		#title_img3 {	top :0px; left :930px;}
 			
-		
+		#freetoplaycontainer{
+			padding :30px 0px 30px 0px;
+			width :1200px;
+			height :400px;
+		}	
+		.freetoplay{
+			width :120px;
+			height :120px;
+			float :left;
+			margin :0px;
+			
+		}
 	</style>
+<%
+	String[] freeToPlay = ChampionApi.getFreeToPlay();
+	
+%>
+	
+	
 </head>
 
 <body>
@@ -80,7 +99,7 @@
 	     
 	 <h2>あなたのサモナーネイムを調べる</h2> 
 		<div class="dd" >
-	        <form action="/HEW/JSP/riot/summonerNameToId.jsp" action="post" style=" display :inline ;">
+	        <form action="/HEW/JSP/member/match_history.jsp" action="post" style=" display :inline ;">
 	        	<p>
                   サモナーネイムを入力してください<br />
                   <input type="text" name="summonerName"/>
@@ -110,6 +129,20 @@
 	 <div class="dd"><p>
 	 <img src="/HEW/images/LineChart.jpeg" />
 	 </p></div>
+	 
+	 <h2>今週のFree to play</h2>
+	 <div class="dd" id="freetoplaycontainer">
+	 	<div class="freetoplay"><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/<%= freeToPlay[0] %>.png "  /></div>
+	 	<div class="freetoplay"><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/<%= freeToPlay[1] %>.png "  /></div>
+	 	<div class="freetoplay"><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/<%= freeToPlay[2] %>.png "  /></div>
+	 	<div class="freetoplay"><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/<%= freeToPlay[3] %>.png "  /></div>
+	 	<div class="freetoplay"><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/<%= freeToPlay[4] %>.png "  /></div>
+	 	<div class="freetoplay"><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/<%= freeToPlay[5] %>.png "  /></div>
+	 	<div class="freetoplay"><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/<%= freeToPlay[6] %>.png "  /></div>
+	 	<div class="freetoplay"><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/<%= freeToPlay[7] %>.png "  /></div>
+	 	<div class="freetoplay"><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/<%= freeToPlay[8] %>.png "  /></div>
+	 	<div class="freetoplay"><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/<%= freeToPlay[9] %>.png "  /></div>
+	</div>
 	 
 	</div><!-- close content -->
   </div> <!--  close wrapper -->
