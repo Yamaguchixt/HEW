@@ -7,6 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 public class MatchHistory {
 	
 	public class GameInfo {
@@ -26,8 +28,31 @@ public class MatchHistory {
 		public String item4;
 		public String item5;
 		public String result;	//勝敗はStringでもっておく。
+		public long time;
 		
 		//constructor省略したら、デフォルトでなんかはいるはず。
+		
+		public String getTimeDifference(){
+			 Calendar calendar1 = Calendar.getInstance();
+
+			    long millis1 = calendar1.getTimeInMillis();
+
+
+
+			    long diff = millis1 - this.time;
+			    long daydiff;
+
+			    diff = diff / 1000;    //秒にする
+			    diff = diff / 60;			//分にする
+			    diff = diff / 60;			//時間にする
+
+			    daydiff = diff/24;		//日にする
+			   if(daydiff <= 1){
+				   return String.valueOf(diff)+"hours ago";
+			   }
+			   return String.valueOf(daydiff)+"days ago";
+			    
+		}
 	}
 
 	
@@ -52,6 +77,7 @@ public class MatchHistory {
 			GameInfo gameinfo =  matchhistory.new GameInfo();
 			
 			gameinfo.subType = gameDto.getString("subType");
+			gameinfo.time = gameDto.getLong("createDate");
 			
 			gameinfo.spell1 = StaticDataApi.summonerSpellHashMap.get(gameDto.getInt("spell1"));
 			

@@ -74,6 +74,7 @@ h2 {
 	padding :30px 20px 50px 20px;
 	border :solid 1px #E3E3E3;
 	background-color: rgba(255,255,255,0.2);
+	border-radius :30px;
 }
 
 #test {
