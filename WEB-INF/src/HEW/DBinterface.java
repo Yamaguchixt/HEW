@@ -3,6 +3,9 @@ package HEW;
 import java.sql.*;
 
 import board.*;
+import board.Thread;
+
+import javax.servlet.jsp.*;
 
 	//ハッシュ化はDBinterface側で行う
 @SuppressWarnings("serial")
@@ -111,8 +114,9 @@ public class DBinterface {
 	}
 	
 	//DBに格納されたMessageテーブルからMessageのツリーを復元するメソッド。
+	//引数はthreadID そのthreadに所属するmessageを復元する。
 	
-	public static Message createBoard() throws SQLException{
+	public static Message createBoard(int threadID) throws SQLException{
 		
 		
 		Connection connection = DBinterface.openDB();
@@ -121,7 +125,7 @@ public class DBinterface {
 		//まずrootのメッセージをつくる。
 		Message root = new Message();
 		
-		String sql = " SELECT * FROM message ORDER BY ID";
+		String sql = " SELECT * FROM message WHERE threadID = "+threadID+" ORDER BY ID";
 		
 		ResultSet resultset = statement.executeQuery(sql);
 		while(resultset.next()){
@@ -135,14 +139,86 @@ public class DBinterface {
 			root.setMessage(message);
 			
 		}
+		DBinterface.closeDB(connection);
+		return root;
+	}
+	
+	public static Thread createThreadList() throws SQLException{
 		
+		Connection connection = DBinterface.openDB();
+		Statement statement = connection.createStatement();
+		
+		//まずrootのメッセージをつくる。
+		Thread root = new Thread();
+		
+		String sql = " SELECT * FROM thread ORDER BY threadID";
+		
+		ResultSet resultset = statement.executeQuery(sql);
+		while(resultset.next()){
+			
+			Thread thread = new Thread();
+			thread.setThreadID(resultset.getInt("threadID"));
+			thread.setTitle(resultset.getString("title"));
+			thread.setContent(resultset.getString("content"));
+			
+			root.setThread(thread);
+			
+		}
+		
+		DBinterface.closeDB(connection);
 		return root;
 	}
 	
 	
+	//DBに新しいthreadを登録するメソッド。
+	public static void createThread(int threadID,String title,String content) throws SQLException{
+		
+		
+		Connection connection = DBinterface.openDB();
+		Statement statement = connection.createStatement();
+		
+		String sql="INSERT INTO thread VALUES("+threadID+",'"+title+"','"+content+"')";
+		int result = statement.executeUpdate(sql);
+		
+	}
 	
+	//DBに新しいMessageを登録するメソッド。
+	public static void createMessage(int ID,int threadID,int responseTo,String content) throws SQLException{
+		
+		Connection connection = DBinterface.openDB();
+		Statement statement = connection.createStatement();
+		
+		String sql = "INSERT INTO message (ID,threadID,responseTo,content) VALUES("+ID+","+threadID+","+responseTo+",'"+content+"')";
+		
+		statement.executeUpdate(sql);
+		DBinterface.closeDB(connection);
+	}
 	
-	
+	//Thread か Message テーブルに挿入する次のIDをくれる
+	//返却時に+1している。
+	public static int getMaxID(String table) throws SQLException{
+		
+		Connection connection = DBinterface.openDB();
+		Statement statement = connection.createStatement();
+		
+		String sql = null;
+		
+		if(table.equals("thread") || table.equals("Thread") ){
+			sql = "SELECT MAX(threadID) FROM thread";
+		}
+		
+		if(table.equals("Message") || table.equals("message")){
+			sql= "SELECT MAX(ID) FROM message";
+		}
+		
+		ResultSet resultset = statement.executeQuery(sql);
+		
+		resultset.next();
+		int result = resultset.getInt(1);
+		
+		DBinterface.closeDB(connection);
+		return result+1;
+	}
 	
 	
 	

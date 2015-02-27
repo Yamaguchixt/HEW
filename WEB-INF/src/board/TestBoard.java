@@ -10,9 +10,7 @@ import HEW.*;
 public class TestBoard {
 	public static void main(String[] args) throws SQLException{
 		
-		Message root = DBinterface.createBoard();
-		
-		PrintStream out = System.out;
-		root.getContent(out);
+		int a =DBinterface.getMaxID("Thread");
+		System.out.println(a);
 	}
 }

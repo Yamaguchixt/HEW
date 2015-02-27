@@ -1,16 +1,20 @@
 package board;
 
-import java.io.PrintStream;
-import java.io.PrintWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.servlet.jsp.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
 public class Message {
 		  int ID;
+		  int threadID;
 		  Message responseTo;
 		  int responsetToID;
 		  int level;
-		  String content;
+		  public String content;
 		  ArrayList<Message> responseList;
 		  
 		  //コンストラクタ
@@ -18,12 +22,12 @@ public class Message {
 
 			  this.ID = 0;
 			  this.level = 0;
-			  this.content = "";
+			  this.content = "this is root";
 			  this.responseList = new ArrayList<Message>();
 		  }
 		  
 		  public String toString(){
-			  return "ID:"+this.ID+"responseTo:"+this.responseTo+"content:"+this.content;
+			 return ("ID:"+this.getID()+"\t responseToID:"+getResponseToID());
 		  }
 		  
 		  
@@ -36,7 +40,12 @@ public class Message {
 			  return this.ID;
 		  }
 		  
-		  
+		  public  void setThreadID(int threadID){
+			  this.threadID = threadID;
+		  }
+		  public int getThreadID(){
+			  return this.threadID;
+		  }
 		  
 		  public void  setResponseTo(Message responseTo){
 			  this.responseTo = responseTo;
@@ -75,7 +84,7 @@ public class Message {
 				  //子に自分を親として登録させておく。
 				  message.setResponseTo(this);
 				  //自身の階層に+１した階層をセットする。
-				  message.setLevel(this.level++);
+				  message.setLevel(this.level+1);
 			  }
 			  
 			  //自分宛てでなかったら、自分への返信listに追加するように命令する
@@ -98,19 +107,19 @@ public class Message {
 		  }
 		  
 		  //contentを表示させるためのメソッド
-		  public void getContent(PrintStream out){
+		  public void getContent(JspWriter out) throws IOException{
 			  
 			  Iterator<Message> iterator = this.responseList.iterator();
-			 
+			  out.println("\n");
 			  out.println("<div class='level"+this.level+"'>");
 			  out.println("\t<p class='levele"+this.level+"content'>");
-			  out.println(this.content);
+			  out.println("\t\t"+this.content);
 			  out.println("\t</p>");
 			  
 			  while(iterator.hasNext()){
 				   iterator.next().getContent(out);
 			  }
-			  out.println("</div>");
+			  out.println("</div><!-- level"+this.level+"閉じる　-->");
 		  }
 		  
 
