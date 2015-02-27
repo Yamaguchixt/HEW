@@ -1,6 +1,9 @@
 package HEW;
 
 import java.sql.*;
+
+import board.*;
+
 	//ハッシュ化はDBinterface側で行う
 @SuppressWarnings("serial")
 public class DBinterface {
@@ -107,7 +110,34 @@ public class DBinterface {
 		return favariteArray;
 	}
 	
+	//DBに格納されたMessageテーブルからMessageのツリーを復元するメソッド。
 	
+	public static Message createBoard() throws SQLException{
+		
+		
+		Connection connection = DBinterface.openDB();
+		Statement statement = connection.createStatement();
+		
+		//まずrootのメッセージをつくる。
+		Message root = new Message();
+		
+		String sql = " SELECT * FROM message ORDER BY ID";
+		
+		ResultSet resultset = statement.executeQuery(sql);
+		while(resultset.next()){
+			
+			Message message = new Message();
+			message.setID(resultset.getInt("id"));
+			message.setResponseToID(resultset.getInt("responseTo"));
+			message.setContent(resultset.getString("content"));
+			
+			System.out.println(message.toString());
+			root.setMessage(message);
+			
+		}
+		
+		return root;
+	}
 	
 	
 	
