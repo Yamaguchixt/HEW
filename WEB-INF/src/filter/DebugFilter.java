@@ -1,6 +1,7 @@
 package filter;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.Enumeration;
 
 import javax.servlet.Filter;
@@ -18,7 +19,9 @@ public class DebugFilter implements Filter {
 	
 	public void doFilter(ServletRequest request,
 									   ServletResponse response,
-									   FilterChain chain){
+									   FilterChain chain) throws UnsupportedEncodingException{
+		
+		request.setCharacterEncoding("utf-8");
 		
 		//System.out.println("--------DebugFilterがrequestのParametersを表示します-----------");
 		Enumeration<String> names = request.getParameterNames();

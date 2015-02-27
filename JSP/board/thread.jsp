@@ -34,13 +34,25 @@
 
 </head>
 <body>
-<%
-	int threadID = Integer.valueOf(request.getParameter("threadID"));
-	Message rootmessage = DBinterface.createBoard(threadID);
-	rootmessage.getContent(out);
+<div class="wrapper">
+	<%
+		int threadID = Integer.valueOf(request.getParameter("threadID"));
+		Message rootmessage = DBinterface.createBoard(threadID);
+		rootmessage.getContent(out);
+		request.setAttribute("threadID",threadID);
 
 
+	%>
+	<div class="form">
+	<form id="createthread" action="/HEW/ThreadDispatcher" method="post">
+		responseTo<input type="text" name="responseTo" />
+		content<textarea name="content" rows="10" cols="40" ></textarea>
+		 <input name="message" value="true"  style="display :none;" />
 
-%>
+		 <input type="submit" value="messageの作成"/>
+	</form>
+</div>
+	
+</div>
 </body>
 </html>
