@@ -8,11 +8,12 @@ import javax.servlet.jsp.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class Thread extends Message{
+public class Thread  extends Message {
 	
 	int threadID;
 	public String title;
 	ArrayList<Thread> threadList ;
+	
 	
 	public Thread(){
 		this.threadID = 0;
@@ -20,6 +21,8 @@ public class Thread extends Message{
 		threadList = new ArrayList<Thread>();
 		
 	}
+	
+	
 	
 	public String toString(){
 		return "threadID:"+getThreadID()+"\t title:"+this.title+"\t content:"+this.content;

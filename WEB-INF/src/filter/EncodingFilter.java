@@ -21,7 +21,7 @@ public class EncodingFilter implements Filter {
 									   FilterChain chain){
 	
 		try {
-			request.setCharacterEncoding("UTF-8");
+			request.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

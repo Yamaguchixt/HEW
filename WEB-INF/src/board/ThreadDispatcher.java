@@ -21,8 +21,8 @@ public class ThreadDispatcher extends HttpServlet  {
 
 	public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
 		
-		/*
-		if(request.getParameter("thread").equals("true")){
+		
+		if(request.getParameter("type").equals("thread")){
 		
 			int threadID = 0;
 			String threadTitle = null;
@@ -33,7 +33,6 @@ public class ThreadDispatcher extends HttpServlet  {
 			
 			try {
 				threadID = DBinterface.getMaxID("thread");
-				System.out.println("MAXIDは:"+threadID);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -47,12 +46,11 @@ public class ThreadDispatcher extends HttpServlet  {
 			request.getRequestDispatcher("JSP/board/threadlist.jsp").forward(request,response);
 			return;
 		}//thread作成閉じる
-	*/
 	
-		if(request.getParameter("message").equals("true")){
+	
+		if(request.getParameter("type").equals("message")){
 			int messageID =0;
-			//int threadID = (int)request.getAttribute("threadID");
-			int threadID = 1;
+			int threadID =  Integer.valueOf(request.getParameter("threadID"));
 			int responseTo = Integer.parseInt(request.getParameter("responseTo"));
 			String content = request.getParameter("content");
 		

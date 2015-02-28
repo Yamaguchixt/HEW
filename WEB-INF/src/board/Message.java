@@ -1,21 +1,25 @@
 package board;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 
 import javax.servlet.jsp.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class Message {
+public class Message implements Comparable<Message>{
 		  int ID;
 		  int threadID;
 		  Message responseTo;
 		  int responsetToID;
 		  int level;
 		  public String content;
-		  ArrayList<Message> responseList;
+		  public ArrayList<Message> responseList;
+		  String time;
 		  
 		  //コンストラクタ
 		  public Message(){
@@ -26,11 +30,29 @@ public class Message {
 			  this.responseList = new ArrayList<Message>();
 		  }
 		  
+		  @Override
+			public int compareTo(Message other) {
+			  
+			  if(this.responseList.size()== other.responseList.size()){ return 0;}
+			 return  (this.responseList.size() > other.responseList.size()) ? -1 : 1 ;
+			  
+			}
+		  
+		  public int getSize(){
+			  return this.responseList.size();
+		  }
+		  
 		  public String toString(){
 			 return ("ID:"+this.getID()+"\t responseToID:"+getResponseToID());
 		  }
 		  
+		  public void setTime(String time){
+			  this.time=time;
+		  }
 		  
+		  public String getTime(){
+			  return this.time;
+		  }
 		  
 		  public void setID(int ID){
 			  this.ID = ID;
@@ -85,6 +107,7 @@ public class Message {
 				  message.setResponseTo(this);
 				  //自身の階層に+１した階層をセットする。
 				  message.setLevel(this.level+1);
+				  
 			  }
 			  
 			  //自分宛てでなかったら、自分への返信listに追加するように命令する
@@ -96,6 +119,8 @@ public class Message {
                   }
 			  }
 		  }	  
+
+		  /*
 		  //必ず既存のMessageに返信してもらうためのメソッド。
 		  public boolean isThere(int ID){
 			  if(this.ID == ID){return true;}
@@ -105,6 +130,7 @@ public class Message {
 			  }
 			  return false;
 		  }
+		  */
 		  
 		  //contentを表示させるためのメソッド
 		  public void getContent(JspWriter out) throws IOException{
@@ -112,15 +138,23 @@ public class Message {
 			  Iterator<Message> iterator = this.responseList.iterator();
 			  out.println("\n");
 			  out.println("<div class='level"+this.level+"'>");
-			  out.println("\t<p class='levele"+this.level+"content'>");
-			  out.println("\t\t"+this.content);
-			  out.println("\t</p>");
 			  
-			  while(iterator.hasNext()){
+			  	out.println("<p class='time' >"+getTime()+"  <button type='button' value="+getID()+" >返信</button>		</p>");
+
+			  	out.println("<p class='level"+this.level+"content'>");
+			  	out.println(this.content);
+			  	out.println("\t</p>");
+			  
+			  	while(iterator.hasNext()){
 				   iterator.next().getContent(out);
-			  }
+			  	}
 			  out.println("</div><!-- level"+this.level+"閉じる　-->");
 		  }
+		  
+		  
+			  
+
+		
 		  
 
 }

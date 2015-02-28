@@ -1,6 +1,9 @@
 package HEW;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
 
 import board.*;
 import board.Thread;
@@ -118,12 +121,23 @@ public class DBinterface {
 	
 	public static Message createBoard(int threadID) throws SQLException{
 		
-		
+		System.out.println("createBoardメソッドが呼ばれる: threadID :"+threadID);
 		Connection connection = DBinterface.openDB();
 		Statement statement = connection.createStatement();
 		
+			
+			
 		//まずrootのメッセージをつくる。
 		Message root = new Message();
+		
+		String threadContent = "SELECT content,time FROM thread WHERE threadID = "+threadID;
+		ResultSet rs = statement.executeQuery(threadContent);
+		if(rs.next()){
+			String content = rs.getString("content");
+			root.setContent(content);
+			root.setTime(rs.getString("time"));
+			}
+		
 		
 		String sql = " SELECT * FROM message WHERE threadID = "+threadID+" ORDER BY ID";
 		
@@ -134,12 +148,13 @@ public class DBinterface {
 			message.setID(resultset.getInt("id"));
 			message.setResponseToID(resultset.getInt("responseTo"));
 			message.setContent(resultset.getString("content"));
+			message.setTime(resultset.getString("time"));
 			
-			System.out.println(message.toString());
 			root.setMessage(message);
 			
 		}
 		DBinterface.closeDB(connection);
+		Collections.sort(root.responseList,new MessageComparator());
 		return root;
 	}
 	
@@ -160,6 +175,7 @@ public class DBinterface {
 			thread.setThreadID(resultset.getInt("threadID"));
 			thread.setTitle(resultset.getString("title"));
 			thread.setContent(resultset.getString("content"));
+			thread.setTime(resultset.getString("time"));
 			
 			root.setThread(thread);
 			
@@ -177,7 +193,11 @@ public class DBinterface {
 		Connection connection = DBinterface.openDB();
 		Statement statement = connection.createStatement();
 		
-		String sql="INSERT INTO thread VALUES("+threadID+",'"+title+"','"+content+"')";
+		
+		Date date = new Date(System.currentTimeMillis());
+		String datetime = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(date);
+		
+		String sql="INSERT INTO thread (threadID,title,content,time) VALUES("+threadID+",'"+title+"','"+content+"','"+datetime+"')";
 		int result = statement.executeUpdate(sql);
 		
 	}
@@ -188,7 +208,10 @@ public class DBinterface {
 		Connection connection = DBinterface.openDB();
 		Statement statement = connection.createStatement();
 		
-		String sql = "INSERT INTO message (ID,threadID,responseTo,content) VALUES("+ID+","+threadID+","+responseTo+",'"+content+"')";
+		Date date = new Date(System.currentTimeMillis());
+		String datetime = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(date);
+		
+		String sql = "INSERT INTO message (ID,threadID,responseTo,content,time) VALUES("+ID+","+threadID+","+responseTo+",'"+content+"','"+datetime+"')";
 		
 		statement.executeUpdate(sql);
 		DBinterface.closeDB(connection);
@@ -197,6 +220,7 @@ public class DBinterface {
 	//Thread か Message テーブルに挿入する次のIDをくれる
 	//返却時に+1している。
 	public static int getMaxID(String table) throws SQLException{
+	
 		
 		Connection connection = DBinterface.openDB();
 		Statement statement = connection.createStatement();
