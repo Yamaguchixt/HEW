@@ -209,15 +209,14 @@ function changeImg(i){
 	count++;
 }
 
-
+//:not(:first)
 //スライドでテキストを表示
 $(function(){
-	$(".dd:not(:first)").css("display","none");
-	$("#content h2").click(function(){
-		if($("+.dd",this).css("display")=="none"){
+	$(".dd").css("display","none");
+	$(".h2").click(function(){
 			$(".dd").slideUp("slow");
 			$("+.dd",this).slideDown("slow");
-		}
+		//}
 	});
 });
 

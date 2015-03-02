@@ -3,6 +3,7 @@ package HEW;
 import riot.*;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.sql.SQLException;
@@ -13,10 +14,12 @@ import org.jfree.*;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.Plot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.renderer.category.StandardBarPainter;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import javax.servlet.RequestDispatcher;
@@ -53,7 +56,7 @@ public class RankingBarGraph extends HttpServlet{
 		String[] championList = ChampionApi.championName;
 		DefaultCategoryDataset data = new DefaultCategoryDataset();
 		for(int i =0; i < 123; i++){
-			data.addValue(favariteArray[i],championList[i],"");
+			data.addValue(favariteArray[i],"0",championList[i]);
 		}
 		
 		JFreeChart chart = ChartFactory.createBarChart(
@@ -68,11 +71,20 @@ public class RankingBarGraph extends HttpServlet{
 		final CategoryPlot plot = chart.getCategoryPlot();
 		plot.setBackgroundPaint(new Color(18,44,56,100));
 		plot.setRangeGridlinesVisible(false);
-		chart.setBackgroundPaint(new Color(142,142,142,100));
-		chart.setBackgroundImageAlpha(0.5f);
+		chart.setBackgroundPaint(new Color(142,142,142));
+		//chart.setBackgroundImageAlpha(0.9f);
 		
 		final BarRenderer renderer = (BarRenderer)plot.getRenderer();
 		renderer.setShadowVisible(false); 
+		renderer.setBarPainter(new StandardBarPainter());
+		renderer.setSeriesPaint(0,new Color(236,225,46) );
+		
+		
+		 Font font = (new Font(Font.SANS_SERIF, Font.PLAIN, 24));
+		 CategoryAxis axis = plot.getDomainAxis();
+		 axis.setTickLabelFont(font);
+		
+
 
 		
 		

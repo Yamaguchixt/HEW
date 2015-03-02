@@ -22,7 +22,6 @@ h1 {
 h2 {
 	line-height :35px;
 	font-size :large;
-	text-indent :3em;
 	font-weight :bold;
 	height :30px;
 	color :#FFF;
@@ -66,6 +65,7 @@ h2 {
 
 .dd {
 	margin :0;
+	clear :both;
 }
 .dd p{
 	margin :0;

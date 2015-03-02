@@ -12,12 +12,10 @@
 		<title>ランキング</title>
 		<style>
 			#plot{
-				border :solid 2px #DDD;
 				width :1100;
 				height :10000px;
 			}
 			#imgfield{
-				border :solid 1px #F00;
 				width :70px;
 				height :8700px;
 				float :left;
@@ -32,7 +30,6 @@
 				width :900px;
 				height :10000px;
 				float :left;
-				border :solid 3px #00F;
 				margin :30px 80px 0px 0px;
 			}
 			.imgfieldsub{
