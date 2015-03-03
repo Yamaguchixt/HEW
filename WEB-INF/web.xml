@@ -46,6 +46,16 @@
  	<servlet-class>board.ThreadDispatcher</servlet-class>
  </servlet>
  
+ <servlet>
+ 	<servlet-name>WinrateGraph</servlet-name>
+ 	<servlet-class>HEW.WinrateGraph</servlet-class>
+ </servlet>
+ 
+ <servlet-mapping>
+ 	<servlet-name>WinrateGraph</servlet-name>
+ 	<url-pattern>/WinrateGraph</url-pattern>
+ </servlet-mapping>
+
  <servlet-mapping>
  	<servlet-name>ThreadDispatcher</servlet-name>
  	<url-pattern>/ThreadDispatcher</url-pattern>

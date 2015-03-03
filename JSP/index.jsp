@@ -70,8 +70,7 @@
 		
 	</style>
 <%
-	String[] freeToPlay = ChampionApi.getFreeToPlay();
-	
+	 String[] freeToPlay = ChampionApi.getFreeToPlay(); 
 %>
 	
 	
@@ -177,7 +176,7 @@
 		 </div>
 	 <h2 class="h2">グラフ表示</h2>	
 	 <div class="dd"><p>
-	 <img src="/HEW/images/LineChart.jpeg" />
+	 <img src="/HEW/images/Winrate.jpeg" />
 	 </p></div><div class="clear"></div>
 	 
 	 <div class="icon"><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/Thresh.png" / style="float :left;">	 

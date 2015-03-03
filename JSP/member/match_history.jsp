@@ -24,6 +24,7 @@
 	 gameList = MatchHistory.createMatchHistory(summonerName);
 	
 	
+	
 	GameInfo game1  = gameList.get(0);
 	GameInfo game2  = gameList.get(1);
 	GameInfo game3  = gameList.get(2);
@@ -448,8 +449,7 @@
 	<script type="text/javascript">
 	
 		//勝敗に応じて　背景色と文字色を変更
-		for ( var i = 1 ; i < 11; i++){
-			//var string = 'resultgame'+i;
+		for (var i = 1 ; i < 11; i++){
 			if(document.getElementById('resultgame'+i).textContent == "Win"){
 				document.getElementById('resultgame'+i).style.color="#5ec84e";
 				var element = document.getElementById('game'+i);
@@ -457,9 +457,17 @@
 			}
 			
 		}		
-		
+	$(function(){
+			
+			$.ajax({
+				type:'GET',
+				url:'http://localhost:8080/HEW/WinrateGraph?summonerName=<%=summonerName%>'
+			});
+	});
 		
 			
 	</script>
+	
+	
 </body>
 </html>

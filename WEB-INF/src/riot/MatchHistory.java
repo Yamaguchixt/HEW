@@ -47,7 +47,7 @@ public class MatchHistory {
 			    diff = diff / 60;			//時間にする
 
 			    daydiff = diff/24;		//日にする
-			   if(daydiff <= 1){
+			   if(daydiff <  1){
 				   return String.valueOf(diff)+"hours ago";
 			   }
 			   return String.valueOf(daydiff)+"days ago";
@@ -65,13 +65,12 @@ public class MatchHistory {
 		
 		//入力されたnameをIDに変換してJSONOojectを習得。
 		JSONObject jsonObject = JsonGetter.getJSON("https://na.api.pvp.net/api/lol/na/v1.3/game/by-summoner/"+summonerID+"/recent?api_key=34e33a58-bdf2-4e07-b04c-83708b207ee8");
-		
 		JSONArray gameDtoArray = jsonObject.getJSONArray("games");
 		
 		//このlistにgameInfoのインスタンスを格納していって、返す。
 		ArrayList<GameInfo> gameInfoList = new ArrayList<>();
-		
 		for(int i=0 ; i < gameDtoArray.length(); i++){
+		    
 			JSONObject gameDto = gameDtoArray.getJSONObject(i);
 			
 			GameInfo gameinfo =  matchhistory.new GameInfo();
@@ -91,10 +90,15 @@ public class MatchHistory {
 			
 			gameinfo.result = rawStatsDto.getBoolean("win") ? "Win" :"Lose" ;//　booleanの勝敗結果を文字になおしておく。
 			
-			gameinfo.championsKilled = rawStatsDto.getInt("championsKilled");  //ここは全部、複数形注意
-			gameinfo.numDeaths = rawStatsDto.getInt("numDeaths");
-			gameinfo.assists = rawStatsDto.getInt("assists");
-			
+			if(rawStatsDto.has("championsKilled")){
+			    gameinfo.championsKilled = rawStatsDto.getInt("championsKilled");  //ここは全部、複数形注意
+			}
+			if(rawStatsDto.has("numDeaths")){
+			    gameinfo.numDeaths = rawStatsDto.getInt("numDeaths");
+			}
+			if(rawStatsDto.has("assists")){
+			    gameinfo.assists = rawStatsDto.getInt("assists");
+			}
 			
 				//itemをうめる
 				if(rawStatsDto.has("item0")){	gameinfo.item0 = String.valueOf(rawStatsDto.getInt("item0"));}

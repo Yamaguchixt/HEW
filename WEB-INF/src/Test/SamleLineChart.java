@@ -82,7 +82,7 @@ public class SamleLineChart{
 		  
 	      int width = 1100; /* Width of the image */
 	      int height = 600; /* Height of the image */ 
-	      File lineChart = new File( "./images/LineChart.jpeg" ); 
+	      File lineChart = new File( "./images/Winrate.jpg" ); 
 	      ChartUtilities.saveChartAsJPEG(lineChart ,lineChartObject, width ,height); 
    }
 }

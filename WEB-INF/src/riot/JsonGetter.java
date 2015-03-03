@@ -21,9 +21,7 @@ public class JsonGetter {
 			while((line = bfr.readLine()) != null){
 				jsonString.append(line);
 			}
-			
 			JSONObject jsonObject = new JSONObject(jsonString.toString());
-			
 			return jsonObject;
 			
 	}

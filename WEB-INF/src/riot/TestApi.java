@@ -17,19 +17,14 @@ import riot.MatchHistory.GameInfo;
 public class TestApi {
 	public static void main(String[] args) throws IOException, JSONException{
 	
-		ArrayList<GameInfo> list = MatchHistory.createMatchHistory("BufferedFeeder");
+		double[] winrate = Winrate.getWinrate("DetFMCeros");
 		
-		for(int i= 0; i < list.size(); i++){
+		for(double i :winrate){
+		    System.out.println(i);
+	    
+	    
 		
-			GameInfo gameInfo = list.get(i); 
-			System.out.println(gameInfo.spell1);
-			System.out.println(gameInfo.result);
-			System.out.println(gameInfo.championsKilled);
-			System.out.println(gameInfo.championName);
-			System.out.println(gameInfo.subType);
-			System.out.println(gameInfo.item2);
-			
 		}
-		
+		System.out.println("処理完了");
 	}
 }
