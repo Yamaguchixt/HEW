@@ -194,6 +194,21 @@
 	 	<div class="freetoplay"><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/<%= freeToPlay[8] %>.png "  /></div>
 	 	<div class="freetoplay"><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/<%= freeToPlay[9] %>.png "  /></div>
 	</div><div class="clear"></div>
+	
+	<a href="http://localhost:8080/HEW/JSP/index.jsp">
+	<div id="toTOP"style="width :150px; height: 150px;  position :fixed; bottom :20px; right :50px; color :#FFF; opacity :0.4" onmouseover ="teemo()"	 onmouseout="killteemo()">
+		<p style="">TOPへ</p>
+		<div style="width :120px; height :120px; overflow :hidden; border-radius :30px;"><img src="http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/Teemo.png" /></div>
+	</div>
+	</a>
+	<script type="text/javascript">
+	function teemo(){
+		document.getElementById("toTOP").style.opacity ="1.0";
+	}
+	function killteemo(){
+		 document.getElementById("toTOP").style.opacity = "0.4";
+	}
+	</script>
 	 
 	</div><!-- close content -->
   </div> <!--  close wrapper -->
