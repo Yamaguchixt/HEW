@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tomcatProjectProperties>
     <rootDir>/</rootDir>
-    <exportSource>false</exportSource>
+    <exportSource>true</exportSource>
     <reloadable>true</reloadable>
     <redirectLogger>false</redirectLogger>
     <updateXml>true</updateXml>
-    <warLocation></warLocation>
+    <warLocation>C:\Users\study\Desktop\jv11_hew_JV11SB01_山口裕太.war</warLocation>
     <extraInfo></extraInfo>
     <webPath>/HEW</webPath>
+    <webClassPathEntries>
+        <webClassPathEntry>/HEW/WEB-INF/classes</webClassPathEntry>
+        <webClassPathEntry>/HEW/work</webClassPathEntry>
+        <webClassPathEntry>C:/xampp/tomcat/lib/commons-logging-1.2.jar</webClassPathEntry>
+        <webClassPathEntry>C:/xampp/tomcat/lib/gson-2.3.1.jar</webClassPathEntry>
+        <webClassPathEntry>C:/xampp/tomcat/lib/httpclient-4.4.jar</webClassPathEntry>
+        <webClassPathEntry>C:/xampp/tomcat/lib/httpcore-4.4.jar</webClassPathEntry>
+        <webClassPathEntry>C:/xampp/tomcat/lib/jackson-annotations-2.5.0.jar</webClassPathEntry>
+        <webClassPathEntry>C:/xampp/tomcat/lib/jackson-core-2.5.0.jar</webClassPathEntry>
+        <webClassPathEntry>C:/xampp/tomcat/lib/jackson-databind-2.5.0.jar</webClassPathEntry>
+        <webClassPathEntry>C:/xampp/tomcat/lib/jcommon-1.0.23.jar</webClassPathEntry>
+        <webClassPathEntry>C:/xampp/tomcat/lib/jfreechart-1.0.19.jar</webClassPathEntry>
+        <webClassPathEntry>C:/xampp/tomcat/lib/json-org.jar</webClassPathEntry>
+        <webClassPathEntry>C:/xampp/tomcat/lib/jsonic-1.0.5.jar</webClassPathEntry>
+        <webClassPathEntry>C:/xampp/tomcat/lib/mysql-connector-java-5.1.28-bin.jar</webClassPathEntry>
+        <webClassPathEntry>C:/xampp/tomcat/lib/org.apache.commons.io_1.1.0.jar</webClassPathEntry>
+    </webClassPathEntries>
 </tomcatProjectProperties>
